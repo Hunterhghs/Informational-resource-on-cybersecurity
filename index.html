@@ -9,7 +9,6 @@
 <meta property="og:description" content="$4.88M average breach cost. Ransomware every 11 seconds. 4.8M unfilled jobs. The data behind the cybersecurity crisis.">
 <title>Cybersecurity Landscape Intelligence | 2025–2026</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
@@ -192,7 +191,6 @@ footer a { color: var(--dkgray); }
 const PALETTE = ['#1B4F72','#2874A6','#117864','#B03A2E','#7D3C98','#566573','#E3120B','#D4AC0D','#1ABC9C'];
 Chart.defaults.font.family = "'Inter', sans-serif";
 Chart.defaults.font.color = '#3A3A3A';
-Chart.defaults.plugins.datalabels = false;
 
 // ═══ Data ═══
 let DATA = null;
@@ -393,7 +391,7 @@ fetch('data.json')
   .then(d => { DATA = d; renderTab('overview'); })
   .catch(() => {
     // Embedded fallback if fetch fails (static deploy)
-    DATA = JSON.parse(document.currentScript.dataset.fallback);
+    DATA = JSON.parse("{}");
     renderTab('overview');
   });
 </script>
