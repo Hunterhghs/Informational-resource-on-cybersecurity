@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cybersecurity Landscape Intelligence 2025-2026 — data-driven analysis of breach costs, attack vectors, ransomware trends, and mitigation strategies.">
+<meta name="theme-color" content="#1A1A1A">
+<meta property="og:title" content="Cybersecurity Landscape Intelligence">
+<meta property="og:description" content="$4.88M average breach cost. Ransomware every 11 seconds. 4.8M unfilled jobs. The data behind the cybersecurity crisis.">
+<title>Cybersecurity Landscape Intelligence | 2025–2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #E3120B;
+  --red-dark: #B00D08;
+  --black: #1A1A1A;
+  --dkgray: #3A3A3A;
+  --midgray: #6E6E6E;
+  --ltgray: #F4F4F4;
+  --bdrgray: #DCDCDC;
+  --white: #FFFFFF;
+  --chart-1: #1B4F72;
+  --chart-2: #2874A6;
+  --chart-3: #117864;
+  --chart-4: #B03A2E;
+  --chart-5: #7D3C98;
+  --chart-6: #566573;
+  --chart-7: #E3120B;
+  --chart-palette: var(--chart-1),var(--chart-2),var(--chart-3),var(--chart-4),var(--chart-5),var(--chart-6),var(--chart-7),#D4AC0D,#1ABC9C;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --body: Georgia, 'Times New Roman', serif;
+  --max-w: 1180px;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: var(--body); font-size: 18px; line-height: 1.7; color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; }
+
+/* Masthead */
+.masthead {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 32px 24px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--bdrgray);
+}
+.masthead-left { display:flex; align-items:center; gap:14px; }
+.masthead-accent {
+  width:8px; height:40px; background:var(--red); display:inline-block; flex-shrink:0;
+}
+.masthead h1 { font-family: var(--sans); font-size: 18px; font-weight: 600; color: var(--black); letter-spacing: -0.2px; }
+.masthead-date { font-family: var(--sans); font-size: 13px; color: var(--midgray); font-weight: 500; }
+
+/* Nav */
+.tab-nav {
+  max-width: var(--max-w); margin: 0 auto;
+  display: flex; gap: 0; padding: 0 24px;
+  border-bottom: 1px solid var(--bdrgray);
+  position: sticky; top: 0; background: var(--white); z-index: 100;
+}
+.tab-btn {
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 14px 22px; border: none; background: none;
+  color: var(--dkgray); cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--black); }
+.tab-btn.active { color: var(--red); border-bottom-color: var(--red); }
+
+/* Tab content */
+main { max-width: var(--max-w); margin: 0 auto; padding: 32px 24px 64px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* KPI Grid */
+.kpi-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap: 0; margin-bottom: 40px; }
+.kpi-card {
+  padding: 24px 28px; border-right: 1px solid var(--bdrgray);
+  border-bottom: 1px solid var(--bdrgray);
+  border-top: 3px solid transparent;
+}
+.kpi-card:nth-child(4n) { border-right: none; }
+@media (max-width:768px) { .kpi-card:nth-child(2n) { border-right:none; } }
+@media (max-width:480px) { .kpi-card { border-right:none; } }
+.kpi-card .kpi-value { font-family: var(--sans); font-size: 2rem; font-weight: 700; color: var(--black); line-height: 1.1; margin-bottom: 4px; }
+.kpi-card .kpi-label { font-family: var(--sans); font-size: 0.8rem; font-weight: 600; color: var(--dkgray); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+.kpi-card .kpi-context { font-size: 0.85rem; color: var(--midgray); line-height: 1.5; }
+.kpi-card .kpi-source { font-family: var(--sans); font-size: 0.65rem; color: #999; margin-top: 8px; }
+.kpi-card:nth-child(1) { border-top-color: var(--red); }
+.kpi-card:nth-child(2) { border-top-color: var(--chart-1); }
+.kpi-card:nth-child(3) { border-top-color: var(--chart-3); }
+.kpi-card:nth-child(4) { border-top-color: var(--chart-5); }
+
+/* Narrative section */
+.narrative { margin-bottom: 40px; }
+.narrative h2 { font-family: var(--sans); font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; color: var(--black); }
+.narrative p { font-size: 1.05rem; color: var(--dkgray); margin-bottom: 16px; max-width: 720px; }
+.callout {
+  border-left: 3px solid var(--red); padding: 16px 20px;
+  background: #FEF7F7; margin: 24px 0; max-width: 720px;
+}
+.callout p { font-family: var(--serif); font-size: 1.1rem; font-style: italic; color: var(--black); margin:0; }
+
+/* Dashboard grid */
+.dash-grid { display:grid; grid-template-columns:1fr 1fr; gap: 28px; }
+@media (max-width:768px) { .dash-grid { grid-template-columns:1fr; } }
+.chart-card { border: 1px solid var(--bdrgray); padding: 24px; background: var(--white); }
+.chart-card h3 { font-family: var(--sans); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--black); margin-bottom: 4px; }
+.chart-card .chart-src { font-family: var(--sans); font-size: 0.7rem; color: var(--midgray); margin-bottom: 16px; }
+.chart-card .chart-wrap { position:relative; height:280px; }
+@media (max-width:480px) { .chart-card .chart-wrap { height:240px; } }
+
+/* Report */
+.report-body { max-width: 700px; }
+.report-body h1 { font-family: var(--sans); font-size: 1.5rem; font-weight: 700; margin: 32px 0 12px; color: var(--black); border-left: 3px solid var(--red); padding-left: 14px; }
+.report-body h2 { font-family: var(--sans); font-size: 1.2rem; font-weight: 700; margin: 28px 0 8px; color: var(--black); border-left: 3px solid var(--red); padding-left: 14px; }
+.report-body h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 600; margin: 20px 0 6px; color: var(--dkgray); }
+.report-body p { margin-bottom: 16px; line-height: 1.8; color: var(--dkgray); }
+.report-body ul, .report-body ol { padding-left: 24px; margin-bottom: 16px; color: var(--dkgray); }
+.report-body li { margin-bottom: 6px; }
+.report-body strong { color: var(--black); }
+.report-body hr { border: none; border-top: 1px solid var(--bdrgray); margin: 28px 0; }
+
+/* Webpage */
+.web-section { margin-bottom: 36px; max-width: 720px; }
+.web-section h2 { font-family: var(--sans); font-size: 1.15rem; font-weight: 700; color: var(--black); margin-bottom: 6px; border-left: 3px solid var(--red); padding-left: 14px; }
+.web-section p { color: var(--dkgray); margin-bottom: 12px; }
+.web-section .inline-stat { font-family: var(--sans); font-weight: 700; color: var(--red); }
+.data-table { width:100%; border-collapse:collapse; font-family:var(--sans); font-size:0.85rem; margin:16px 0; }
+.data-table th { text-align:left; padding:10px 14px; border-bottom:2px solid var(--black); font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--black); }
+.data-table td { padding:8px 14px; border-bottom:1px solid var(--bdrgray); color:var(--dkgray); }
+.data-table tr:nth-child(even) td { background:var(--ltgray); }
+
+/* Footer */
+footer {
+  max-width: var(--max-w); margin: 0 auto; padding: 28px 24px 40px;
+  border-top: 1px solid var(--bdrgray);
+  font-family: var(--sans); font-size: 0.75rem; color: var(--midgray);
+  display: flex; justify-content: space-between; flex-wrap:wrap; gap:12px;
+}
+footer a { color: var(--dkgray); }
+
+/* Print */
+@media print {
+  .tab-nav { display:none; }
+  .tab-content { display:block !important; page-break-before:always; }
+  .tab-content:first-of-type { page-break-before:avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ MASTHEAD ═══ -->
+<header class="masthead">
+  <div class="masthead-left">
+    <span class="masthead-accent"></span>
+    <h1>Cybersecurity Landscape Intelligence</h1>
+  </div>
+  <span class="masthead-date">2025–2026</span>
+</header>
+
+<!-- ═══ NAV ═══ -->
+<nav class="tab-nav" id="tab-nav">
+  <button class="tab-btn active" data-tab="overview">Overview</button>
+  <button class="tab-btn" data-tab="dashboard">Dashboard</button>
+  <button class="tab-btn" data-tab="report">Digital Report</button>
+  <button class="tab-btn" data-tab="webpage">Informational Webpage</button>
+</nav>
+
+<!-- ═══ MAIN ═══ -->
+<main>
+  <section class="tab-content active" id="tab-overview"></section>
+  <section class="tab-content" id="tab-dashboard"></section>
+  <section class="tab-content" id="tab-report"></section>
+  <section class="tab-content" id="tab-webpage"></section>
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <span>Data sources: IBM, Cybersecurity Ventures, ISC2, Statista, World Economic Forum, ENISA, CISA</span>
+  <span>H Heuristics &copy; 2026</span>
+</footer>
+
+<script>
+// ═══ Chart Palette ═══
+const PALETTE = ['#1B4F72','#2874A6','#117864','#B03A2E','#7D3C98','#566573','#E3120B','#D4AC0D','#1ABC9C'];
+Chart.defaults.font.family = "'Inter', sans-serif";
+Chart.defaults.font.color = '#3A3A3A';
+Chart.defaults.plugins.datalabels = false;
+
+// ═══ Data ═══
+let DATA = null;
+const rendered = new Set();
+const charts = [];
+
+function destroyCharts() {
+  charts.forEach(c => c.destroy());
+  charts.length = 0;
+}
+
+// ═══ Tab Switching ═══
+document.getElementById('tab-nav').addEventListener('click', e => {
+  const btn = e.target.closest('.tab-btn');
+  if (!btn) return;
+  const tab = btn.dataset.tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  const content = document.getElementById('tab-' + tab);
+  content.classList.add('active');
+  if (!rendered.has(tab)) renderTab(tab);
+});
+
+// ═══ Render Router ═══
+function renderTab(tab) {
+  rendered.add(tab);
+  destroyCharts();
+  switch(tab) {
+    case 'overview': renderOverview(); break;
+    case 'dashboard': renderDashboard(); break;
+    case 'report': renderReport(); break;
+    case 'webpage': renderWebpage(); break;
+  }
+}
+
+function fmoney(v) { return v >= 1000 ? '$'+(v/1000).toFixed(2)+'B' : '$'+v.toFixed(1)+'M'; }
+function fnum(v) { return v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(0)+'K' : v; }
+
+// ═══ TAB 1: OVERVIEW ═══
+function renderOverview() {
+  const el = document.getElementById('tab-overview');
+  const k = DATA.kpiCards;
+  const paletteBorders = ['var(--red)','var(--chart-1)','var(--chart-3)','var(--chart-5)'];
+  el.innerHTML = `
+    <div class="kpi-grid">
+      ${k.map((c,i) => `
+        <div class="kpi-card" style="border-top-color:${paletteBorders[i]}">
+          <div class="kpi-label">${c.label}</div>
+          <div class="kpi-value">${c.value}</div>
+          <div class="kpi-context">${c.context}</div>
+          <div class="kpi-source">${c.source}</div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="narrative">
+      <h2>The Big Picture</h2>
+      <p>The global cybersecurity landscape continues to deteriorate. The average cost of a data breach reached <strong>$${DATA.breachTimeline.timeline[DATA.breachTimeline.timeline.length-1].avgCost} million</strong> in 2024 — the highest level recorded. Ransomware attacks now occur every 11 seconds, with average ransom demands exceeding $2.1 million. Despite $215 billion in global cybersecurity spending, the workforce gap has widened to 4.8 million unfilled positions — a 19% year-over-year increase.</p>
+      <p>Phishing remains the dominant attack vector, accounting for 41% of breaches. Supply chain attacks grew 200% year-over-year. The software supply chain has emerged as the single largest unmanaged risk surface. Healthcare remains the most targeted industry, with average breach costs of $10.93 million — more than double the cross-industry average.</p>
+      <p>Yet the solutions are maturing. Zero Trust Architecture adoption has reached 61%, saving organizations $1.76 million per breach. AI-powered threat detection reduces breach lifecycles by 108 days. Multi-factor authentication — now adopted by 85% of organizations — blocks 99.9% of automated credential attacks.</p>
+    </div>
+    <div class="callout">
+      <p>"Ransomware attacks now occur every 11 seconds. Average demands exceed $2.1 million. The economic toll extends beyond direct costs — 60% of small businesses that suffer a cyberattack close within six months."</p>
+    </div>
+  `;
+}
+
+// ═══ TAB 2: DASHBOARD ═══
+function renderDashboard() {
+  const el = document.getElementById('tab-dashboard');
+  el.innerHTML = `<div class="dash-grid" id="dash-grid"></div>`;
+  const grid = document.getElementById('dash-grid');
+
+  function addCard(title, src, canvasId) {
+    const card = document.createElement('div');
+    card.className = 'chart-card';
+    card.innerHTML = `<h3>${title}</h3><div class="chart-src">${src}</div><div class="chart-wrap"><canvas id="${canvasId}"></canvas></div>`;
+    grid.appendChild(card);
+  }
+
+  addCard('Average Cost of a Data Breach by Industry', 'IBM Cost of a Data Breach 2025 · $USD Millions', 'chart-industry');
+  addCard('Attack Vectors: How Breaches Occur', '% of breaches by initial attack vector · IBM 2025', 'chart-vectors');
+  addCard('Average Data Breach Cost Over Time', '2018–2024 · $USD Millions · IBM Annual Reports', 'chart-timeline');
+  addCard('Global Cybersecurity Spending by Region', '$USD Billions · Gartner / Cybersecurity Ventures 2025', 'chart-regions');
+  addCard('Average Ransomware Demand', '2019–2024 · $USD · Cybersecurity Ventures', 'chart-ransom');
+  addCard('Mitigation Strategy Adoption Rates', '% of organizations · Various sources 2025', 'chart-mitigation');
+
+  // Industry bars
+  const ind = [...DATA.breachCostByIndustry.industries].sort((a,b) => b.avgCost - a.avgCost);
+  charts.push(new Chart(document.getElementById('chart-industry'), {
+    type: 'bar', data: { labels: ind.map(d=>d.name), datasets: [{ data: ind.map(d=>d.avgCost), backgroundColor: PALETTE.map(c=>c+'CC'), borderColor: PALETTE, borderWidth: 1 }] },
+    options: { indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => '$'+ctx.parsed.x+'M' } } }, scales:{ x:{ grid:{ color:'rgba(0,0,0,0.05)' }, ticks:{ callback:v=>'$'+v+'M' } }, y:{ grid:{display:false} } } }
+  }));
+
+  // Attack vectors
+  const vec = [...DATA.attackVectors.vectors].sort((a,b) => b.percent - a.percent);
+  charts.push(new Chart(document.getElementById('chart-vectors'), {
+    type: 'bar', data: { labels: vec.map(d=>d.name), datasets: [{ data: vec.map(d=>d.percent), backgroundColor: PALETTE.slice(0,vec.length).map(c=>c+'CC'), borderColor: PALETTE.slice(0,vec.length), borderWidth: 1 }] },
+    options: { indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => ctx.parsed.x+'%' } } }, scales:{ x:{ grid:{ color:'rgba(0,0,0,0.05)' }, ticks:{ callback:v=>v+'%' }, max:50 }, y:{ grid:{display:false} } } }
+  }));
+
+  // Timeline
+  const tl = DATA.breachTimeline.timeline;
+  charts.push(new Chart(document.getElementById('chart-timeline'), {
+    type: 'line', data: { labels: tl.map(d=>d.year), datasets: [{ data: tl.map(d=>d.avgCost), borderColor: '#E3120B', backgroundColor: 'rgba(227,18,11,0.06)', fill: true, tension: 0.3, pointBackgroundColor: '#E3120B', pointRadius: 5, borderWidth: 2.5 }] },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => '$'+ctx.parsed.y+'M' } } }, scales:{ x:{ grid:{display:false} }, y:{ grid:{ color:'rgba(0,0,0,0.05)' }, ticks:{ callback:v=>'$'+v+'M' }, min:3.5 } } }
+  }));
+
+  // Regional spend
+  const reg = [...DATA.regionalSpend.regions].sort((a,b) => b.spend - a.spend);
+  charts.push(new Chart(document.getElementById('chart-regions'), {
+    type: 'bar', data: { labels: reg.map(d=>d.name), datasets: [{ data: reg.map(d=>d.spend), backgroundColor: PALETTE.slice(0,reg.length).map(c=>c+'CC'), borderColor: PALETTE.slice(0,reg.length), borderWidth: 1 }] },
+    options: { indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => '$'+ctx.parsed.x+'B' } } }, scales:{ x:{ grid:{ color:'rgba(0,0,0,0.05)' }, ticks:{ callback:v=>'$'+v+'B' } }, y:{ grid:{display:false} } } }
+  }));
+
+  // Ransomware
+  const rw = DATA.ransomwareTrends.yearly;
+  charts.push(new Chart(document.getElementById('chart-ransom'), {
+    type: 'line', data: { labels: rw.map(d=>d.year), datasets: [{ data: rw.map(d=>d.avgRansom), borderColor: '#B03A2E', backgroundColor: 'rgba(176,58,46,0.06)', fill: true, tension: 0.3, pointBackgroundColor: '#B03A2E', pointRadius: 5, borderWidth: 2.5 }] },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => '$'+(ctx.parsed.y/1e6).toFixed(2)+'M' } } }, scales:{ x:{ grid:{display:false} }, y:{ grid:{ color:'rgba(0,0,0,0.05)' }, ticks:{ callback:v => v >= 1e6 ? '$'+(v/1e6).toFixed(1)+'M' : '$'+(v/1e3).toFixed(0)+'K' }, min:0 } } }
+  }));
+
+  // Mitigation
+  const mit = [...DATA.mitigationStrategies].sort((a,b) => b.adoption - a.adoption);
+  const effColors = { 'High': '#117864', 'Medium': '#D4AC0D' };
+  charts.push(new Chart(document.getElementById('chart-mitigation'), {
+    type: 'bar', data: { labels: mit.map(d=>d.name), datasets: [{ data: mit.map(d=>d.adoption), backgroundColor: mit.map(d => (effColors[d.effectiveness]||'#566573')+'CC'), borderColor: mit.map(d => effColors[d.effectiveness]||'#566573'), borderWidth: 1 }] },
+    options: { indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => ctx.parsed.x+'% adoption ('+mit[ctx.dataIndex].effectiveness+' effectiveness)' } } }, scales:{ x:{ grid:{ color:'rgba(0,0,0,0.05)' }, ticks:{ callback:v=>v+'%' }, max:100 }, y:{ grid:{display:false} } } }
+  }));
+}
+
+// ═══ TAB 3: DIGITAL REPORT ═══
+function renderReport() {
+  marked.setOptions({ breaks: true, gfm: true });
+  const html = marked.parse(DATA.reportText);
+  document.getElementById('tab-report').innerHTML = `<div class="report-body">${html}</div>`;
+}
+
+// ═══ TAB 4: INFORMATIONAL WEBPAGE ═══
+function renderWebpage() {
+  const d = DATA;
+  const el = document.getElementById('tab-webpage');
+  el.innerHTML = `
+    <div class="web-section">
+      <h2>What Is Cybersecurity?</h2>
+      <p>Cybersecurity encompasses the technologies, processes, and practices designed to protect networks, devices, programs, and data from attack, damage, or unauthorized access. In an era where digital infrastructure underpins every sector — from healthcare and finance to energy and national defense — cybersecurity is no longer an IT concern. It is a <strong>systemic economic risk</strong>.</p>
+      <p>Global spending on cybersecurity reached <span class="inline-stat">$215 billion</span> in 2025, projected to exceed $300 billion by 2028. Yet the threat landscape is expanding faster than defenses can adapt.</p>
+    </div>
+
+    <div class="web-section">
+      <h2>The Modern Threat Landscape</h2>
+      <p>Cyberattacks have evolved from isolated incidents of hacking into a sophisticated, industrialized criminal economy. The most common attack vectors reveal the human and systemic vulnerabilities that adversaries exploit:</p>
+      <table class="data-table">
+        <thead><tr><th>Attack Vector</th><th>Share of Breaches</th></tr></thead>
+        <tbody>${d.attackVectors.vectors.map(v => `<tr><td>${v.name}</td><td><strong>${v.percent}%</strong></td></tr>`).join('')}</tbody>
+      </table>
+      <p><strong>Phishing</strong> dominates at <span class="inline-stat">41%</span> of all breaches. The rise of generative AI has supercharged social engineering — attackers can now craft highly convincing, personalized phishing campaigns at scale, in any language, with flawless grammar. <strong>Supply chain attacks</strong> grew 200% year-over-year, exploiting trust relationships between organizations and their software vendors.</p>
+    </div>
+
+    <div class="web-section">
+      <h2>Economic Impact of Cybercrime</h2>
+      <p>The financial toll of cyberattacks extends far beyond the immediate cost of incident response. The average data breach now costs <span class="inline-stat">$${d.breachTimeline.timeline[d.breachTimeline.timeline.length-1].avgCost} million</span>, up from $3.86 million in 2018 — a 26% increase in six years.</p>
+      <table class="data-table">
+        <thead><tr><th>Industry</th><th>Average Breach Cost</th></tr></thead>
+        <tbody>${[...d.breachCostByIndustry.industries].sort((a,b)=>b.avgCost-a.avgCost).map(i => `<tr><td>${i.name}</td><td><strong>$${i.avgCost}M</strong></td></tr>`).join('')}</tbody>
+      </table>
+      <p><strong>Healthcare</strong> is the most expensive sector for breaches at <span class="inline-stat">$10.93 million</span> — more than double the cross-industry average. The sensitivity of patient data, regulatory penalties under HIPAA, and the life-critical nature of healthcare systems make this sector uniquely vulnerable. Stock prices decline an average of 7.5% following a major breach disclosure, and <strong>60% of small businesses</strong> that suffer a cyberattack close within six months.</p>
+      <p>Ransomware has become the most lucrative cybercrime business model. The average ransom demand rose from <span class="inline-stat">$115,000</span> in 2019 to <span class="inline-stat">$2.13 million</span> in 2024 — an 18-fold increase. Ransomware-as-a-Service (RaaS) platforms have lowered the barrier to entry, enabling non-technical criminals to launch sophisticated attacks.</p>
+    </div>
+
+    <div class="web-section">
+      <h2>Key Defenses</h2>
+      <p>Organizations are not defenseless. A set of proven mitigation strategies — when implemented together — dramatically reduce both the likelihood and impact of cyberattacks:</p>
+      <table class="data-table">
+        <thead><tr><th>Strategy</th><th>Adoption</th><th>Effectiveness</th><th>Key Benefit</th></tr></thead>
+        <tbody>${d.mitigationStrategies.map(s => `<tr><td><strong>${s.name}</strong></td><td>${s.adoption}%</td><td>${s.effectiveness}</td><td style="font-size:0.8rem;">${s.description}</td></tr>`).join('')}</tbody>
+      </table>
+      <p><strong>Multi-Factor Authentication</strong> — now adopted by 85% of organizations — is the single highest-ROI defense, blocking 99.9% of automated credential attacks. <strong>Zero Trust Architecture</strong> (61% adoption) saves $1.76 million per breach on average. <strong>AI-powered threat detection</strong> (48% adoption) reduces breach lifecycles by 108 days — often the difference between a contained incident and a catastrophic data loss.</p>
+    </div>
+
+    <div class="web-section">
+      <h2>The Workforce Challenge</h2>
+      <p>The cybersecurity industry faces a critical talent shortage. There are currently <span class="inline-stat">4.8 million</span> unfilled cybersecurity positions worldwide — a 19% increase from the previous year. The gap spans every domain: security operations, cloud security, application security, and governance. Demand for AI and machine learning expertise in security has grown 3x year-over-year.</p>
+      <p>This isn't just a staffing issue — it's a national security vulnerability. Every unfilled position represents delayed detection, slower incident response, and increased organizational risk. Addressing the gap requires investment in education, apprenticeship programs, and automation tools that augment — rather than replace — human analysts.</p>
+    </div>
+
+    <div class="web-section">
+      <h2>Outlook</h2>
+      <p>The cybersecurity landscape of 2026–2030 will be defined by three converging forces: the proliferation of AI-powered attacks, the expansion of the attack surface through IoT and 5G, and the growing regulatory pressure on organizations to demonstrate resilience. The organizations that thrive will be those that treat cybersecurity not as a cost center but as a strategic capability — investing in Zero Trust, AI-augmented defense, workforce development, and incident response readiness.</p>
+      <p>The data is clear: the threat is escalating, but the defenses are maturing. The gap between the two is where risk lives — and it is, fundamentally, a choice about investment and priority.</p>
+    </div>
+  `;
+}
+
+// ═══ INIT ═══
+fetch('data.json')
+  .then(r => r.json())
+  .then(d => { DATA = d; renderTab('overview'); })
+  .catch(() => {
+    // Embedded fallback if fetch fails (static deploy)
+    DATA = JSON.parse(document.currentScript.dataset.fallback);
+    renderTab('overview');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+[fable]
+provider = "openai-compatible"
+model = "deepseek-v4-flash"
+base_url = "https://api.deepseek.com/v1"
+memory_backend = "sqlite"
+max_iterations = 20

@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "title": "Cybersecurity Landscape Intelligence",
+    "lastUpdated": "2026-07-11",
+    "sources": ["IBM Cost of a Data Breach 2025", "Cybersecurity Ventures", "Statista", "World Economic Forum", "ENISA", "CISA"]
+  },
+  "kpiCards": [
+    { "id": "breach-cost", "label": "Average Cost of a Data Breach", "value": "$4.88M", "context": "Up 10% from 2023. Highest on record.", "source": "IBM Cost of a Data Breach Report 2025", "category": "cost" },
+    { "id": "global-spend", "label": "Global Cybersecurity Spending", "value": "$215B", "context": "Projected to reach $300B+ by 2028.", "source": "Gartner / Cybersecurity Ventures 2025", "category": "market" },
+    { "id": "ransomware", "label": "Ransomware Attack Frequency", "value": "Every 11s", "context": "A new attack occurs every 11 seconds globally.", "source": "Cybersecurity Ventures 2025", "category": "threat" },
+    { "id": "workforce-gap", "label": "Cybersecurity Workforce Gap", "value": "4.8M", "context": "Unfilled positions worldwide. Up 19% YoY.", "source": "ISC2 Cybersecurity Workforce Study 2025", "category": "workforce" }
+  ],
+  "breachCostByIndustry": {
+    "industries": [
+      { "name": "Healthcare", "avgCost": 10.93 },
+      { "name": "Financial Services", "avgCost": 6.08 },
+      { "name": "Technology", "avgCost": 5.45 },
+      { "name": "Energy", "avgCost": 5.28 },
+      { "name": "Industrial", "avgCost": 5.11 },
+      { "name": "Retail", "avgCost": 3.48 },
+      { "name": "Education", "avgCost": 3.21 },
+      { "name": "Public Sector", "avgCost": 2.67 }
+    ]
+  },
+  "attackVectors": {
+    "vectors": [
+      { "name": "Phishing / Social Engineering", "percent": 41 },
+      { "name": "Stolen Credentials", "percent": 22 },
+      { "name": "Cloud Misconfiguration", "percent": 15 },
+      { "name": "Third-Party / Supply Chain", "name_full": "Third-Party Software Vulnerability", "percent": 13 },
+      { "name": "Physical Attack", "percent": 5 },
+      { "name": "Insider Threat", "percent": 4 }
+    ]
+  },
+  "breachTimeline": {
+    "timeline": [
+      { "year": 2018, "avgCost": 3.86 },
+      { "year": 2019, "avgCost": 3.92 },
+      { "year": 2020, "avgCost": 3.86 },
+      { "year": 2021, "avgCost": 4.24 },
+      { "year": 2022, "avgCost": 4.35 },
+      { "year": 2023, "avgCost": 4.45 },
+      { "year": 2024, "avgCost": 4.88 }
+    ]
+  },
+  "regionalSpend": {
+    "regions": [
+      { "name": "North America", "spend": 92 },
+      { "name": "Europe", "spend": 62 },
+      { "name": "Asia-Pacific", "spend": 38 },
+      { "name": "Middle East & Africa", "spend": 12 },
+      { "name": "Latin America", "spend": 11 }
+    ]
+  },
+  "mitigationStrategies": [
+    { "name": "Zero Trust Architecture", "adoption": 61, "effectiveness": "High", "description": "Never trust, always verify. Reduces breach cost by $1.76M on average." },
+    { "name": "AI-Powered Threat Detection", "adoption": 48, "effectiveness": "High", "description": "ML-driven anomaly detection. Reduces breach lifecycle by 108 days." },
+    { "name": "Employee Security Training", "adoption": 72, "effectiveness": "Medium", "description": "Phishing simulation and awareness. Reduces successful phishing by 70%." },
+    { "name": "Multi-Factor Authentication", "adoption": 85, "effectiveness": "High", "description": "Blocks 99.9% of automated credential attacks." },
+    { "name": "Incident Response Planning", "adoption": 56, "effectiveness": "High", "description": "Tested IR plan reduces breach cost by $1.49M on average." },
+    { "name": "Cloud Security Posture Mgmt", "adoption": 44, "effectiveness": "Medium", "description": "Automated misconfiguration detection and remediation." }
+  ],
+  "ransomwareTrends": {
+    "yearly": [
+      { "year": 2019, "avgRansom": 115000 },
+      { "year": 2020, "avgRansom": 312000 },
+      { "year": 2021, "avgRansom": 570000 },
+      { "year": 2022, "avgRansom": 812000 },
+      { "year": 2023, "avgRansom": 1540000 },
+      { "year": 2024, "avgRansom": 2130000 }
+    ]
+  },
+  "reportText": "# The State of Cybersecurity 2025-2026\n\n## Executive Summary\n\nThe global cybersecurity landscape continues to deteriorate at an alarming pace. The average cost of a data breach reached $4.88 million in 2024 — the highest level ever recorded. Ransomware attacks now occur every 11 seconds, with average ransom demands exceeding $2.1 million. Despite $215 billion in global cybersecurity spending, the workforce gap has widened to 4.8 million unfilled positions.\n\n## Threat Landscape\n\nPhishing remains the dominant attack vector, accounting for 41% of all breaches. The rise of generative AI has supercharged social engineering — attackers can now craft highly convincing, personalized phishing campaigns at scale. Supply chain attacks grew 200% year-over-year, with the software supply chain emerging as the single largest unmanaged risk surface.\n\n## Economic Impact\n\nThe economic toll extends beyond direct breach costs. Stock prices decline an average of 7.5% following a major breach disclosure, and 60% of small businesses that suffer a cyberattack close within six months. Healthcare remains the most targeted industry, with average breach costs of $10.93 million.\n\n## The Path Forward\n\nZero Trust Architecture adoption has reached 61%, and organizations with mature Zero Trust programs save $1.76 million per breach on average. AI-powered threat detection reduces breach lifecycles by 108 days — the difference between a contained incident and a catastrophic one. The single highest-ROI investment remains employee security training, which reduces successful phishing attacks by 70%."
+}
