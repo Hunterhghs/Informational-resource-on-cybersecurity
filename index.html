@@ -9,8 +9,9 @@
 <meta property="og:description" content="$4.88M average breach cost. Ransomware every 11 seconds. 4.8M unfilled jobs. The data behind the cybersecurity crisis.">
 <title>Cybersecurity Landscape Intelligence | 2025–2026</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js" integrity="sha384-zbcZAIxlvJtNE3Dp5nxLXdXtXyxwOdnILY1TDPVmKFhl4r4nSUG1r8bcFXGVa4Te" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -105,6 +106,28 @@ main { max-width: var(--max-w); margin: 0 auto; padding: 32px 24px 64px; }
   background: #FEF7F7; margin: 24px 0; max-width: 720px;
 }
 .callout p { font-family: var(--serif); font-size: 1.1rem; font-style: italic; color: var(--black); margin:0; }
+
+
+/* Two-column callout row for Overview */
+.callout-row { display:flex; gap:24px; margin:24px 0; max-width:760px; }
+.callout-row .callout { flex:1; margin:0; }
+@media (max-width:640px) { .callout-row { flex-direction:column; } }
+
+/* Slim data table for Overview metrics */
+.slim-table { font-family:var(--sans); font-size:0.85rem; width:100%; max-width:520px; margin:16px 0; border-collapse:collapse; }
+.slim-table th { text-align:left; padding:8px 0; border-bottom:2px solid var(--black); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--black); }
+.slim-table td { padding:6px 0; border-bottom:1px solid var(--bdrgray); }
+.slim-table .stat-val { font-weight:700; text-align:right; color:var(--black); min-width:60px; }
+.slim-table .stat-trend { font-size:0.75rem; color:var(--midgray); text-align:right; }
+
+/* Section marker with red accent bar */
+.section-marker { display:flex; align-items:center; gap:8px; margin:24px 0 12px; }
+.section-marker span { width:4px; height:22px; background:var(--red); flex-shrink:0; }
+.section-marker h3 { font-family:var(--sans); font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--dkgray); margin:0; }
+
+/* Narrative h4 for subsection headings */
+.narrative h4 { font-family:var(--sans); font-size:0.9rem; font-weight:700; color:var(--black); margin:20px 0 6px; }
+
 
 /* Dashboard grid */
 .dash-grid { display:grid; grid-template-columns:1fr 1fr; gap: 28px; }
@@ -227,17 +250,26 @@ function renderTab(tab) {
   }
 }
 
-function fmoney(v) { return v >= 1000 ? '$'+(v/1000).toFixed(2)+'B' : '$'+v.toFixed(1)+'M'; }
-function fnum(v) { return v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(0)+'K' : v; }
 
 // ═══ TAB 1: OVERVIEW ═══
 function renderOverview() {
   const el = document.getElementById('tab-overview');
-  const k = DATA.kpiCards;
-  const paletteBorders = ['var(--red)','var(--chart-1)','var(--chart-3)','var(--chart-5)'];
+  const allKpis = [...DATA.kpiCards, ...(DATA.kpiCardsExtended||[])];
+  const paletteBorders = ['var(--red)','var(--chart-1)','var(--chart-3)','var(--chart-5)','var(--chart-6)','#D4AC0D','#1ABC9C','#8E44AD'];
+  const tl = DATA.breachTimeline.timeline;
+  const latestCost = tl[tl.length-1].avgCost;
+  const prevCost = tl[tl.length-2].avgCost;
+  const yoyChange = ((latestCost - prevCost) / prevCost * 100).toFixed(1);
+  const bl = DATA.breachLifecycle || {};
+  const ai = bl.aiImpact || {};
+  const cim = DATA.cyberInsuranceMarket || {};
+  const et = DATA.emergingThreats || [];
+  const rs = DATA.ransomwareBySector || [];
+  const wf = DATA.workforceBreakdown || {};
+
   el.innerHTML = `
     <div class="kpi-grid">
-      ${k.map((c,i) => `
+      ${allKpis.map((c,i) => `
         <div class="kpi-card" style="border-top-color:${paletteBorders[i]}">
           <div class="kpi-label">${c.label}</div>
           <div class="kpi-value">${c.value}</div>
@@ -246,15 +278,45 @@ function renderOverview() {
         </div>
       `).join('')}
     </div>
+
+    <div class="section-marker"><span></span><h3>Executive Briefing</h3></div>
     <div class="narrative">
-      <h2>The Big Picture</h2>
-      <p>The global cybersecurity landscape continues to deteriorate. The average cost of a data breach reached <strong>$${DATA.breachTimeline.timeline[DATA.breachTimeline.timeline.length-1].avgCost} million</strong> in 2024 — the highest level recorded. Ransomware attacks now occur every 11 seconds, with average ransom demands exceeding $2.1 million. Despite $215 billion in global cybersecurity spending, the workforce gap has widened to 4.8 million unfilled positions — a 19% year-over-year increase.</p>
-      <p>Phishing remains the dominant attack vector, accounting for 41% of breaches. Supply chain attacks grew 200% year-over-year. The software supply chain has emerged as the single largest unmanaged risk surface. Healthcare remains the most targeted industry, with average breach costs of $10.93 million — more than double the cross-industry average.</p>
-      <p>Yet the solutions are maturing. Zero Trust Architecture adoption has reached 61%, saving organizations $1.76 million per breach. AI-powered threat detection reduces breach lifecycles by 108 days. Multi-factor authentication — now adopted by 85% of organizations — blocks 99.9% of automated credential attacks.</p>
+
+      <h4>The Breach Economy</h4>
+      <p>The average data breach now costs <strong>$${latestCost} million</strong>, up ${yoyChange}% from 2023 and 26% from 2018. Healthcare remains the most expensive sector at $10.93 million per breach — more than four times the public sector average of $2.67 million. Ransomware demands have grown 18-fold in five years, from $115,000 in 2019 to <strong>$2.13 million</strong> in 2024. ${rs.length > 0 ? 'Healthcare faces the highest incident share ('+rs[0].incidentShare+'%) with average downtimes of '+rs[0].avgDowntimeDays+' days and demands averaging $'+(rs[0].avgDemand/1e6).toFixed(1)+' million.' : ''}</p>
+
+      <h4>The Expanding Attack Surface</h4>
+      <p>Phishing dominates at 41% of breaches — an attack vector supercharged by generative AI. Supply chain attacks grew 200% year-over-year, exposing the software supply chain as the largest unmanaged risk surface. ${et.filter(e=>e.riskLevel==='Critical').map(e=>e.threat+' ('+e.yoyGrowth+'% YoY growth)').join(' and ')} are the most rapidly escalating threats, with timelines measured in months rather than years.</p>
+
+      <h4>Defense Maturity Gap</h4>
+      <p>Multi-Factor Authentication (85% adoption) and Employee Security Training (72%) are approaching saturation. But Zero Trust Architecture (61%) and Incident Response Planning (56%) remain underinvested relative to their ROI — each saves over $1.4 million per breach. ${ai.daysSaved ? 'AI-powered threat detection reduces the breach lifecycle by <strong>'+ai.daysSaved+' days</strong>, from '+ai.withoutAI+' days to '+ai.withAI+' days — a 34% reduction that often determines whether an incident is contained or catastrophic.' : ''}</p>
+
+      <h4>The Talent Crunch</h4>
+      <p>The cybersecurity workforce gap stands at <strong>${wf.totalGap ? (wf.totalGap/1e6).toFixed(1)+' million' : '4.8 million'}</strong> unfilled positions worldwide${wf.yoyGapGrowth ? ', up '+wf.yoyGapGrowth+'% year-over-year' : ''}. ${wf.rolesByDemand ? 'The most acute shortages are in Security Operations ('+(wf.rolesByDemand[0].openings/1e3).toFixed(0)+'K openings), Cloud Security Engineering ('+(wf.rolesByDemand[1].openings/1e3).toFixed(0)+'K), and the rapidly growing AI Security Specialist role ($'+(wf.rolesByDemand[5].avgSalary/1e3).toFixed(0)+'K average salary).' : ''} With women representing only ${wf.genderRatio ? wf.genderRatio.women : '25'}% of the workforce, diversity is both a pipeline problem and a security imperative.</p>
+
     </div>
-    <div class="callout">
-      <p>"Ransomware attacks now occur every 11 seconds. Average demands exceed $2.1 million. The economic toll extends beyond direct costs — 60% of small businesses that suffer a cyberattack close within six months."</p>
+
+    ${bl.stages ? `
+    <div class="section-marker"><span></span><h3>Key Metrics at a Glance</h3></div>
+    <table class="slim-table">
+      <thead><tr><th>Metric</th><th>Days</th><th>YoY Trend</th></tr></thead>
+      <tbody>
+        ${bl.stages.map(s => `<tr><td>${s.name}</td><td class="stat-val">${s.avgDays}</td><td class="stat-trend">${s.trend==='down'?'\u2193':'→'} ${Math.abs(s.yoyChange)}%</td></tr>`).join('')}
+      </tbody>
+    </table>
+    ` : ''}
+
+    <div class="callout-row">
+      <div class="callout"><p>"60% of small businesses that suffer a cyberattack close within six months. The average ransom demand has grown 18\u00d7 in five years — from $115K to $2.13M."</p></div>
+      ${ai.daysSaved ? `<div class="callout"><p>"Organizations with AI-powered threat detection contain breaches in ${ai.withAI} days vs. ${ai.withoutAI} days without — a ${Math.round(ai.daysSaved/ai.withoutAI*100)}% reduction in the breach lifecycle."</p></div>` : ''}
     </div>
+
+    ${cim.marketSize2024 ? `
+    <div class="section-marker"><span></span><h3>The Cost of Inaction</h3></div>
+    <div class="narrative">
+      <p>The cyber insurance market grew to <strong>$${cim.marketSize2024} billion</strong> in 2024, with premiums rising ${cim.premiumGrowth2024}% year-over-year and the average premium at $${(cim.averagePremium2024/1e3).toFixed(0)}K. With a claims ratio of ${cim.claimsRatio2024}%, insurers are tightening exclusions for ransomware and nation-state attacks. By 2027, the market is projected to reach <strong>$${cim.projectedMarketSize2027} billion</strong> — a clear signal that organizations are externalizing risk rather than building resilience. Insurance is increasingly a forcing function: organizations that cannot demonstrate basic cyber hygiene are unable to obtain coverage at any price.</p>
+    </div>
+    ` : ''}
   `;
 }
 
@@ -391,7 +453,7 @@ fetch('data.json')
   .then(d => { DATA = d; renderTab('overview'); })
   .catch(() => {
     // Embedded fallback if fetch fails (static deploy)
-    DATA = JSON.parse("{}");
+    DATA = { kpiCards: [], kpiCardsExtended: [], breachTimeline: { timeline: [{year:2024,avgCost:4.88}] }, breachCostByIndustry: { industries: [] }, attackVectors: { vectors: [] }, regionalSpend: { regions: [] }, mitigationStrategies: [], ransomwareTrends: { yearly: [] }, reportText: '# Data Unavailable\n\nPlease ensure data.json is served alongside this page.' };
     renderTab('overview');
   });
 </script>

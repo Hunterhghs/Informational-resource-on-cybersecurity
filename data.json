@@ -2,73 +2,507 @@
   "meta": {
     "title": "Cybersecurity Landscape Intelligence",
     "lastUpdated": "2026-07-11",
-    "sources": ["IBM Cost of a Data Breach 2025", "Cybersecurity Ventures", "Statista", "World Economic Forum", "ENISA", "CISA"]
+    "sources": [
+      "IBM Cost of a Data Breach 2025",
+      "Cybersecurity Ventures",
+      "Statista",
+      "World Economic Forum",
+      "ENISA",
+      "CISA"
+    ],
+    "methodology": "Data compiled from IBM Cost of a Data Breach 2025, Cybersecurity Ventures 2026, ISC2 Workforce Study 2025, Gartner IT Spending Forecast, ENISA Threat Landscape 2025, World Economic Forum Global Risks Report 2026, NIST CSF 2.0 adoption metrics, and Statista Market Insights."
   },
   "kpiCards": [
-    { "id": "breach-cost", "label": "Average Cost of a Data Breach", "value": "$4.88M", "context": "Up 10% from 2023. Highest on record.", "source": "IBM Cost of a Data Breach Report 2025", "category": "cost" },
-    { "id": "global-spend", "label": "Global Cybersecurity Spending", "value": "$215B", "context": "Projected to reach $300B+ by 2028.", "source": "Gartner / Cybersecurity Ventures 2025", "category": "market" },
-    { "id": "ransomware", "label": "Ransomware Attack Frequency", "value": "Every 11s", "context": "A new attack occurs every 11 seconds globally.", "source": "Cybersecurity Ventures 2025", "category": "threat" },
-    { "id": "workforce-gap", "label": "Cybersecurity Workforce Gap", "value": "4.8M", "context": "Unfilled positions worldwide. Up 19% YoY.", "source": "ISC2 Cybersecurity Workforce Study 2025", "category": "workforce" }
+    {
+      "id": "breach-cost",
+      "label": "Average Cost of a Data Breach",
+      "value": "$4.88M",
+      "context": "Up 10% from 2023. Highest on record.",
+      "source": "IBM Cost of a Data Breach Report 2025",
+      "category": "cost"
+    },
+    {
+      "id": "global-spend",
+      "label": "Global Cybersecurity Spending",
+      "value": "$215B",
+      "context": "Projected to reach $300B+ by 2028.",
+      "source": "Gartner / Cybersecurity Ventures 2025",
+      "category": "market"
+    },
+    {
+      "id": "ransomware",
+      "label": "Ransomware Attack Frequency",
+      "value": "Every 11s",
+      "context": "A new attack occurs every 11 seconds globally.",
+      "source": "Cybersecurity Ventures 2025",
+      "category": "threat"
+    },
+    {
+      "id": "workforce-gap",
+      "label": "Cybersecurity Workforce Gap",
+      "value": "4.8M",
+      "context": "Unfilled positions worldwide. Up 19% YoY.",
+      "source": "ISC2 Cybersecurity Workforce Study 2025",
+      "category": "workforce"
+    }
   ],
   "breachCostByIndustry": {
     "industries": [
-      { "name": "Healthcare", "avgCost": 10.93 },
-      { "name": "Financial Services", "avgCost": 6.08 },
-      { "name": "Technology", "avgCost": 5.45 },
-      { "name": "Energy", "avgCost": 5.28 },
-      { "name": "Industrial", "avgCost": 5.11 },
-      { "name": "Retail", "avgCost": 3.48 },
-      { "name": "Education", "avgCost": 3.21 },
-      { "name": "Public Sector", "avgCost": 2.67 }
+      {
+        "name": "Healthcare",
+        "avgCost": 10.93
+      },
+      {
+        "name": "Financial Services",
+        "avgCost": 6.08
+      },
+      {
+        "name": "Technology",
+        "avgCost": 5.45
+      },
+      {
+        "name": "Energy",
+        "avgCost": 5.28
+      },
+      {
+        "name": "Industrial",
+        "avgCost": 5.11
+      },
+      {
+        "name": "Retail",
+        "avgCost": 3.48
+      },
+      {
+        "name": "Education",
+        "avgCost": 3.21
+      },
+      {
+        "name": "Public Sector",
+        "avgCost": 2.67
+      }
     ]
   },
   "attackVectors": {
     "vectors": [
-      { "name": "Phishing / Social Engineering", "percent": 41 },
-      { "name": "Stolen Credentials", "percent": 22 },
-      { "name": "Cloud Misconfiguration", "percent": 15 },
-      { "name": "Third-Party / Supply Chain", "name_full": "Third-Party Software Vulnerability", "percent": 13 },
-      { "name": "Physical Attack", "percent": 5 },
-      { "name": "Insider Threat", "percent": 4 }
+      {
+        "name": "Phishing / Social Engineering",
+        "percent": 41
+      },
+      {
+        "name": "Stolen Credentials",
+        "percent": 22
+      },
+      {
+        "name": "Cloud Misconfiguration",
+        "percent": 15
+      },
+      {
+        "name": "Third-Party / Supply Chain",
+        "name_full": "Third-Party Software Vulnerability",
+        "percent": 13
+      },
+      {
+        "name": "Physical Attack",
+        "percent": 5
+      },
+      {
+        "name": "Insider Threat",
+        "percent": 4
+      }
     ]
   },
   "breachTimeline": {
     "timeline": [
-      { "year": 2018, "avgCost": 3.86 },
-      { "year": 2019, "avgCost": 3.92 },
-      { "year": 2020, "avgCost": 3.86 },
-      { "year": 2021, "avgCost": 4.24 },
-      { "year": 2022, "avgCost": 4.35 },
-      { "year": 2023, "avgCost": 4.45 },
-      { "year": 2024, "avgCost": 4.88 }
+      {
+        "year": 2018,
+        "avgCost": 3.86
+      },
+      {
+        "year": 2019,
+        "avgCost": 3.92
+      },
+      {
+        "year": 2020,
+        "avgCost": 3.86
+      },
+      {
+        "year": 2021,
+        "avgCost": 4.24
+      },
+      {
+        "year": 2022,
+        "avgCost": 4.35
+      },
+      {
+        "year": 2023,
+        "avgCost": 4.45
+      },
+      {
+        "year": 2024,
+        "avgCost": 4.88
+      }
     ]
   },
   "regionalSpend": {
     "regions": [
-      { "name": "North America", "spend": 92 },
-      { "name": "Europe", "spend": 62 },
-      { "name": "Asia-Pacific", "spend": 38 },
-      { "name": "Middle East & Africa", "spend": 12 },
-      { "name": "Latin America", "spend": 11 }
+      {
+        "name": "North America",
+        "spend": 92
+      },
+      {
+        "name": "Europe",
+        "spend": 62
+      },
+      {
+        "name": "Asia-Pacific",
+        "spend": 38
+      },
+      {
+        "name": "Middle East & Africa",
+        "spend": 12
+      },
+      {
+        "name": "Latin America",
+        "spend": 11
+      }
     ]
   },
   "mitigationStrategies": [
-    { "name": "Zero Trust Architecture", "adoption": 61, "effectiveness": "High", "description": "Never trust, always verify. Reduces breach cost by $1.76M on average." },
-    { "name": "AI-Powered Threat Detection", "adoption": 48, "effectiveness": "High", "description": "ML-driven anomaly detection. Reduces breach lifecycle by 108 days." },
-    { "name": "Employee Security Training", "adoption": 72, "effectiveness": "Medium", "description": "Phishing simulation and awareness. Reduces successful phishing by 70%." },
-    { "name": "Multi-Factor Authentication", "adoption": 85, "effectiveness": "High", "description": "Blocks 99.9% of automated credential attacks." },
-    { "name": "Incident Response Planning", "adoption": 56, "effectiveness": "High", "description": "Tested IR plan reduces breach cost by $1.49M on average." },
-    { "name": "Cloud Security Posture Mgmt", "adoption": 44, "effectiveness": "Medium", "description": "Automated misconfiguration detection and remediation." }
+    {
+      "name": "Zero Trust Architecture",
+      "adoption": 61,
+      "effectiveness": "High",
+      "description": "Never trust, always verify. Reduces breach cost by $1.76M on average."
+    },
+    {
+      "name": "AI-Powered Threat Detection",
+      "adoption": 48,
+      "effectiveness": "High",
+      "description": "ML-driven anomaly detection. Reduces breach lifecycle by 108 days."
+    },
+    {
+      "name": "Employee Security Training",
+      "adoption": 72,
+      "effectiveness": "Medium",
+      "description": "Phishing simulation and awareness. Reduces successful phishing by 70%."
+    },
+    {
+      "name": "Multi-Factor Authentication",
+      "adoption": 85,
+      "effectiveness": "High",
+      "description": "Blocks 99.9% of automated credential attacks."
+    },
+    {
+      "name": "Incident Response Planning",
+      "adoption": 56,
+      "effectiveness": "High",
+      "description": "Tested IR plan reduces breach cost by $1.49M on average."
+    },
+    {
+      "name": "Cloud Security Posture Mgmt",
+      "adoption": 44,
+      "effectiveness": "Medium",
+      "description": "Automated misconfiguration detection and remediation."
+    }
   ],
   "ransomwareTrends": {
     "yearly": [
-      { "year": 2019, "avgRansom": 115000 },
-      { "year": 2020, "avgRansom": 312000 },
-      { "year": 2021, "avgRansom": 570000 },
-      { "year": 2022, "avgRansom": 812000 },
-      { "year": 2023, "avgRansom": 1540000 },
-      { "year": 2024, "avgRansom": 2130000 }
+      {
+        "year": 2019,
+        "avgRansom": 115000
+      },
+      {
+        "year": 2020,
+        "avgRansom": 312000
+      },
+      {
+        "year": 2021,
+        "avgRansom": 570000
+      },
+      {
+        "year": 2022,
+        "avgRansom": 812000
+      },
+      {
+        "year": 2023,
+        "avgRansom": 1540000
+      },
+      {
+        "year": 2024,
+        "avgRansom": 2130000
+      }
     ]
   },
-  "reportText": "# The State of Cybersecurity 2025-2026\n\n## Executive Summary\n\nThe global cybersecurity landscape continues to deteriorate at an alarming pace. The average cost of a data breach reached $4.88 million in 2024 — the highest level ever recorded. Ransomware attacks now occur every 11 seconds, with average ransom demands exceeding $2.1 million. Despite $215 billion in global cybersecurity spending, the workforce gap has widened to 4.8 million unfilled positions.\n\n## Threat Landscape\n\nPhishing remains the dominant attack vector, accounting for 41% of all breaches. The rise of generative AI has supercharged social engineering — attackers can now craft highly convincing, personalized phishing campaigns at scale. Supply chain attacks grew 200% year-over-year, with the software supply chain emerging as the single largest unmanaged risk surface.\n\n## Economic Impact\n\nThe economic toll extends beyond direct breach costs. Stock prices decline an average of 7.5% following a major breach disclosure, and 60% of small businesses that suffer a cyberattack close within six months. Healthcare remains the most targeted industry, with average breach costs of $10.93 million.\n\n## The Path Forward\n\nZero Trust Architecture adoption has reached 61%, and organizations with mature Zero Trust programs save $1.76 million per breach on average. AI-powered threat detection reduces breach lifecycles by 108 days — the difference between a contained incident and a catastrophic one. The single highest-ROI investment remains employee security training, which reduces successful phishing attacks by 70%."
+  "reportText": "# The State of Cybersecurity 2025\u20132026\n\n**A Data-Driven Analysis of the Global Threat Landscape, Economic Impact, and Strategic Defenses**\n\n*Published July 2026 \u00b7 Compiled from IBM, Cybersecurity Ventures, ISC2, Gartner, ENISA, NIST, WEF, and Statista*\n\n---\n\n## Executive Summary\n\nThe global cybersecurity landscape in 2025\u20132026 is defined by a convergence of escalating threats and maturing defenses. Global cybercrime damage is projected to reach **$10.5 trillion** annually, while the average data breach now costs **$4.88 million** \u2014 the highest level ever recorded. Ransomware attacks occur every 11 seconds, with average demands exceeding $2.1 million. The cybersecurity workforce gap has widened to **4.8 million** unfilled positions, a 19% year-over-year increase.\n\nThe defining dynamic of this era is the race between AI-powered attack and AI-powered defense. Organizations using AI and automation in their security operations identify and contain breaches in **209 days** on average, compared to 317 days without \u2014 a 34% reduction in the breach lifecycle. This 108-day difference often represents the margin between a contained incident and a catastrophic data loss.\n\nThree priorities emerge from the data: accelerate Zero Trust Architecture adoption (currently at 61%, saving $1.76M per breach), invest in AI-augmented security operations, and address the structural workforce shortage through education, automation, and diversity. The organizations that treat cybersecurity as a strategic capability rather than a cost center will be the ones that thrive in the decade ahead.\n\n---\n\n## Methodology\n\nThis report synthesizes data from seven authoritative sources: IBM's annual Cost of a Data Breach report (2025 edition, analyzing 604 organizations across 17 industries and 16 countries), Cybersecurity Ventures' 2026 cybercrime projections, the ISC2 Cybersecurity Workforce Study (2025, surveying 14,865 professionals globally), Gartner's IT spending forecasts, the ENISA Threat Landscape 2025 report, the World Economic Forum's Global Risks Report 2026, and NIST's Cybersecurity Framework 2.0 adoption metrics. All monetary values are in nominal USD unless stated otherwise. Industry comparisons use IBM's standardized breach cost methodology. Workforce data reflects self-reported vacancies and demand projections from ISC2's longitudinal survey.\n\n---\n\n## The Threat Landscape\n\n### Attack Vectors: How Breaches Occur\n\nPhishing and social engineering remain the dominant attack vector, accounting for **41%** of all breaches. The proliferation of generative AI has fundamentally altered this landscape: attackers can now craft highly convincing, personalized phishing campaigns at scale, in any language, with flawless grammar and contextual awareness. What once required a skilled social engineer now requires a well-crafted prompt. Stolen credentials account for 22% of breaches \u2014 with an estimated 15 billion credentials circulating on dark web marketplaces, credential stuffing and password spraying attacks have become commoditized.\n\nCloud misconfiguration represents 15% of breaches and is the fastest-growing vector in cloud-native environments. The complexity of multi-cloud deployments, combined with the speed of DevOps pipelines, creates configuration drift that automated tools struggle to keep pace with. Supply chain attacks account for 13% of breaches but grew 200% year-over-year \u2014 the single largest unmanaged risk surface in enterprise security. The SolarWinds, Kaseya, and 3CX incidents demonstrated that compromising one vendor can yield access to thousands of downstream targets.\n\n### Ransomware Ecology\n\nRansomware has evolved from a nuisance into an industrialized criminal economy. Ransomware-as-a-Service (RaaS) platforms have lowered the barrier to entry, enabling non-technical criminals to launch sophisticated attacks. The average ransom demand rose from $115,000 in 2019 to **$2.13 million** in 2024 \u2014 an 18-fold increase in five years. Double extortion (encrypting data and threatening to leak it) is now standard practice, with 77% of ransomware incidents involving data exfiltration.\n\nHealthcare is the most targeted sector (22% of incidents), with an average downtime of 18 days and demands averaging $3.4 million. The life-critical nature of healthcare systems makes organizations more likely to pay. Education (14% of incidents) faces average downtimes of 12 days, while government entities (12%) suffer the longest downtimes at 21 days due to legacy infrastructure and complex recovery processes.\n\n### Emerging Threats\n\nFive emerging threat categories demand attention. **AI-Generated Polymorphic Malware** (340% YoY growth, Critical risk) uses generative AI to rewrite its own code, evading signature-based detection. **Deepfake Social Engineering** (210% growth, Critical) exploits AI-generated audio and video to impersonate executives and trusted authorities. **Quantum Computing Threats** (85% growth, High risk) represent a longer-term but existential challenge: adversaries are already harvesting encrypted data for future decryption. **5G/IoT Botnet Expansion** (120% growth) leverages the explosion of connected devices for large-scale DDoS attacks. **SaaS Supply Chain Poisoning** (95% growth) targets CI/CD pipelines to inject backdoors into widely-used platforms.\n\n### Threat Actor Analysis\n\nFinancially motivated cybercriminals dominate the threat landscape at **68%** of all incidents, driven by ransomware and business email compromise. State-sponsored advanced persistent threat (APT) groups account for 18% but are growing rapidly, with a focus on supply chain compromise and zero-day exploitation targeting government, critical infrastructure, and technology sectors. Insider threats (10%) \u2014 both malicious and negligent \u2014 remain persistent, with credential sharing and data exfiltration as primary tactics. Hacktivists (4%) use DDoS and defacement primarily against government and media targets.\n\n---\n\n## Economic Impact\n\n### Breach Cost by Industry\n\nThe financial impact of cyberattacks varies dramatically by sector. Healthcare leads at **$10.93 million** per breach \u2014 more than four times the public sector average of $2.67 million. The sensitivity of patient data, HIPAA regulatory penalties, and the life-critical nature of healthcare operations make this sector uniquely vulnerable. Financial services ($6.08M) and technology ($5.45M) follow, reflecting the value of the data they hold and the regulatory scrutiny they face.\n\nThe average breach cost has risen 26% from $3.86 million in 2018 to $4.88 million in 2024, with the steepest acceleration occurring between 2021 and 2024. This trajectory shows no sign of leveling off. Beyond direct costs (detection, escalation, notification, post-breach response), the indirect economic toll is substantial: stock prices decline an average of 7.5% following a major breach disclosure, and **60% of small businesses** that suffer a cyberattack close within six months.\n\n### The Cyber Insurance Market\n\nThe cyber insurance market reached **$15.2 billion** in 2024, with premiums rising 33% year-over-year. The average premium stands at $340,000, and the market is projected to reach $28.6 billion by 2027. However, with a claims ratio of 62%, insurers are tightening exclusions for ransomware and nation-state attacks. Insurance is becoming a forcing function for security maturity: organizations that cannot demonstrate basic cyber hygiene (MFA, endpoint detection, incident response planning) are increasingly unable to obtain coverage.\n\n---\n\n## Regional Analysis\n\nGlobal cybersecurity spending reached $215 billion in 2025, but the distribution is highly uneven. North America leads at **$92 billion** (43% of the global total), driven by a dense concentration of Fortune 500 headquarters, mature regulatory frameworks, and a highly litigious business environment. Europe follows at $62 billion, with GDPR-driven compliance spending representing a significant share of the total.\n\nThe Asia-Pacific region ($38 billion) is the fastest-growing major market, driven by digital transformation in India, Southeast Asia, and China. The Middle East and Africa ($12 billion) represent the highest growth rate at 22% CAGR, fueled by national digital transformation agendas (Saudi Vision 2030, UAE Digital Government Strategy) and the rapid expansion of mobile-first digital services. Latin America ($11 billion) faces unique challenges around cybercrime-as-a-service ecosystems operating across porous jurisdictional boundaries.\n\n---\n\n## The Regulatory Landscape\n\nThe global regulatory environment is shifting from guidelines to enforcement. GDPR (enacted 2018) remains the most influential framework, with penalties of up to \u20ac20 million or 4% of global revenue. NIST CSF 2.0 (2024) is non-binding but has been adopted as a baseline by an estimated 10 million organizations worldwide, influencing regulation far beyond US borders. The EU's DORA (Digital Operational Resilience Act, enacted 2025) imposes penalties of 1% of average daily turnover on financial entities and represents a new model of sector-specific cyber resilience regulation.\n\nThe trend is clear: regulators are demanding demonstrable resilience, not just compliance checkboxes. Organizations should expect more sector-specific regulations modeled on DORA, increased board-level accountability for cybersecurity failures, and mandatory breach notification windows that continue to shorten (72 hours under GDPR, with proposals for 24 hours under future frameworks).\n\n---\n\n## The Workforce Crisis\n\nThe cybersecurity industry faces a structural talent shortage of **4.8 million** unfilled positions globally, a 19% increase year-over-year. The gap spans every domain but is most acute in security operations (850,000 openings, $98K average salary), cloud security engineering (620,000 openings, $142K), and penetration testing (370,000 openings, $126K).\n\nThe fastest-growing role is AI Security Specialist (180,000 openings, $168K average salary), reflecting the sudden demand for professionals who understand both machine learning and security. The gender ratio remains starkly imbalanced at 25% women to 75% men \u2014 a pipeline problem that is also a security problem, as homogeneous teams are demonstrably worse at identifying threats that affect diverse populations.\n\n---\n\n## Mitigation Strategies and ROI\n\nSix proven strategies offer measurable returns on investment. **Multi-Factor Authentication** (85% adoption, High effectiveness) blocks 99.9% of automated credential attacks and is the single highest-ROI defense available. **Zero Trust Architecture** (61% adoption, High effectiveness) reduces average breach cost by $1.76 million by eliminating implicit trust. **Employee Security Training** (72% adoption, Medium effectiveness) reduces successful phishing attacks by 70% at minimal cost.\n\n**Incident Response Planning** (56% adoption, High effectiveness) saves $1.49 million per breach on average, yet 44% of organizations still lack a tested IR plan. **AI-Powered Threat Detection** (48% adoption, High effectiveness) reduces the breach lifecycle by 108 days \u2014 often the difference between containment and catastrophe. **Cloud Security Posture Management** (44% adoption, Medium effectiveness) addresses the fastest-growing attack vector but remains underinvested relative to risk.\n\nThe adoption gap between high- and low-penetration defenses reveals where organizations should invest next. MFA and security training are approaching saturation; the next frontier is Zero Trust expansion, IR planning maturity, and AI-augmented detection.\n\n---\n\n## The Path Forward\n\n### Near-Term (2026\u20132027)\nOrganizations should prioritize three immediate actions: deploy phishing-resistant MFA (FIDO2/Passkeys) across all user-facing systems, accelerate Zero Trust segmentation to limit lateral movement, and invest in AI-augmented SOC capabilities to reduce detection and response times. Board-level cybersecurity expertise should become a governance requirement, not an afterthought.\n\n### Medium-Term (2027\u20132029)\nThe post-quantum cryptography migration window opens now. NIST finalized PQC standards in 2024, and organizations have a 5\u201310 year window to migrate. Those that start late will face a Y2K-scale remediation effort under time pressure. AI regulation frameworks will mature, creating compliance requirements around algorithmic transparency and automated decision-making in security contexts.\n\n### Long-Term (2029\u2013Beyond)\nQuantum-safe infrastructure will become a baseline requirement. Autonomous security operations \u2014 where AI systems detect, contain, and remediate threats without human intervention \u2014 will move from experimental to operational. Global cyber norms will continue to evolve, with the UN's Cybercrime Treaty and bilateral agreements shaping the rules of engagement in cyberspace.\n\n---\n\n## References\n\n1. IBM Security. (2025). *Cost of a Data Breach Report 2025*. IBM Corporation.\n2. Cybersecurity Ventures. (2026). *Cybercrime Damage Projections 2025\u20132030*.\n3. ISC2. (2025). *Cybersecurity Workforce Study 2025*. International Information System Security Certification Consortium.\n4. Gartner. (2025). *IT Security Spending Forecast, Q4 2025 Update*.\n5. European Union Agency for Cybersecurity (ENISA). (2025). *Threat Landscape 2025*.\n6. World Economic Forum. (2026). *Global Risks Report 2026*.\n7. National Institute of Standards and Technology. (2024). *The NIST Cybersecurity Framework 2.0*.\n8. Marsh / WTW. (2025). *Cyber Insurance Market Report 2025*.\n\n---\n\n*This report was compiled from publicly available data sources. All statistics are attributed to their respective publishers. The analysis and synthesis are the work of H Heuristics. \u00a9 2026.*\n",
+  "kpiCardsExtended": [
+    {
+      "id": "mtti",
+      "label": "Mean Time to Identify",
+      "value": "204 days",
+      "context": "Down from 228 days in 2023. AI detection tools cut this by 108 days.",
+      "source": "IBM Cost of a Data Breach 2025"
+    },
+    {
+      "id": "mttc",
+      "label": "Mean Time to Contain",
+      "value": "73 days",
+      "context": "Down from 80 days. Faster containment saves $1M+ per incident.",
+      "source": "IBM Cost of a Data Breach 2025"
+    },
+    {
+      "id": "cybercrime-damage",
+      "label": "Projected Cybercrime Damage",
+      "value": "$10.5T",
+      "context": "Annual global cybercrime costs projected by 2025.",
+      "source": "Cybersecurity Ventures 2025"
+    },
+    {
+      "id": "zt-adoption",
+      "label": "Zero Trust Adoption Rate",
+      "value": "61%",
+      "context": "Organizations with mature ZT save $1.76M per breach.",
+      "source": "IBM / CISA 2025"
+    }
+  ],
+  "breachLifecycle": {
+    "stages": [
+      {
+        "name": "Identification",
+        "avgDays": 204,
+        "trend": "down",
+        "yoyChange": -10.5
+      },
+      {
+        "name": "Containment",
+        "avgDays": 73,
+        "trend": "down",
+        "yoyChange": -8.8
+      },
+      {
+        "name": "Eradication",
+        "avgDays": 35,
+        "trend": "stable",
+        "yoyChange": -1.2
+      },
+      {
+        "name": "Recovery",
+        "avgDays": 29,
+        "trend": "stable",
+        "yoyChange": -0.5
+      }
+    ],
+    "aiImpact": {
+      "withoutAI": 317,
+      "withAI": 209,
+      "daysSaved": 108
+    },
+    "source": "IBM Cost of a Data Breach 2025"
+  },
+  "regulatoryLandscape": [
+    {
+      "regulation": "GDPR (EU)",
+      "enacted": 2018,
+      "maxPenalty": "\u20ac20M or 4% of global revenue",
+      "globalInfluence": "High",
+      "organizationsAffected": "500K+"
+    },
+    {
+      "regulation": "CCPA / CPRA (California)",
+      "enacted": 2020,
+      "maxPenalty": "$7,500 per intentional violation",
+      "globalInfluence": "Medium",
+      "organizationsAffected": "200K+"
+    },
+    {
+      "regulation": "NIST CSF 2.0 (US)",
+      "enacted": 2024,
+      "maxPenalty": "Guideline (non-binding)",
+      "globalInfluence": "High",
+      "organizationsAffected": "10M+ (adopted as baseline)"
+    },
+    {
+      "regulation": "LGPD (Brazil)",
+      "enacted": 2020,
+      "maxPenalty": "2% of revenue (cap R$50M)",
+      "globalInfluence": "Medium",
+      "organizationsAffected": "150K+"
+    },
+    {
+      "regulation": "DORA (EU Financial Sector)",
+      "enacted": 2025,
+      "maxPenalty": "1% of average daily turnover",
+      "globalInfluence": "High",
+      "organizationsAffected": "22K+ financial entities"
+    }
+  ],
+  "ransomwareBySector": [
+    {
+      "sector": "Healthcare",
+      "incidentShare": 22,
+      "avgDowntimeDays": 18,
+      "avgDemand": 3400000
+    },
+    {
+      "sector": "Education",
+      "incidentShare": 14,
+      "avgDowntimeDays": 12,
+      "avgDemand": 1800000
+    },
+    {
+      "sector": "Government",
+      "incidentShare": 12,
+      "avgDowntimeDays": 21,
+      "avgDemand": 2500000
+    },
+    {
+      "sector": "Manufacturing",
+      "incidentShare": 11,
+      "avgDowntimeDays": 14,
+      "avgDemand": 2100000
+    },
+    {
+      "sector": "Financial Services",
+      "incidentShare": 9,
+      "avgDowntimeDays": 10,
+      "avgDemand": 4500000
+    },
+    {
+      "sector": "Technology",
+      "incidentShare": 8,
+      "avgDowntimeDays": 9,
+      "avgDemand": 3100000
+    }
+  ],
+  "cyberInsuranceMarket": {
+    "premiumGrowth2024": 33,
+    "averagePremium2024": 340000,
+    "marketSize2024": 15.2,
+    "projectedMarketSize2027": 28.6,
+    "claimsRatio2024": 62,
+    "source": "Marsh / WTW Cyber Insurance Market Report 2025"
+  },
+  "emergingThreats": [
+    {
+      "threat": "AI-Generated Polymorphic Malware",
+      "riskLevel": "Critical",
+      "yoyGrowth": 340,
+      "description": "Malware that uses generative AI to rewrite its own code to evade signature-based detection.",
+      "timeline": "Active \u2014 accelerating"
+    },
+    {
+      "threat": "Deepfake Social Engineering",
+      "riskLevel": "Critical",
+      "yoyGrowth": 210,
+      "description": "Audio and video deepfakes used to impersonate executives, vendors, or trusted authorities.",
+      "timeline": "Active \u2014 high growth"
+    },
+    {
+      "threat": "Quantum Computing Cryptographic Threat",
+      "riskLevel": "High",
+      "yoyGrowth": 85,
+      "description": "Quantum-capable adversaries breaking current asymmetric encryption. Harvest now, decrypt later.",
+      "timeline": "3\u20137 years"
+    },
+    {
+      "threat": "5G/IoT Botnet Expansion",
+      "riskLevel": "High",
+      "yoyGrowth": 120,
+      "description": "Exploitation of unsecured IoT devices connected via 5G for large-scale DDoS and infiltration.",
+      "timeline": "Active \u2014 expanding"
+    },
+    {
+      "threat": "SaaS Supply Chain Poisoning",
+      "riskLevel": "High",
+      "yoyGrowth": 95,
+      "description": "Compromised CI/CD pipelines injecting backdoors into widely-used third-party SaaS platforms.",
+      "timeline": "Active \u2014 escalating"
+    }
+  ],
+  "workforceBreakdown": {
+    "totalGap": 4800000,
+    "yoyGapGrowth": 19,
+    "rolesByDemand": [
+      {
+        "role": "Security Operations Analyst",
+        "openings": 850000,
+        "avgSalary": 98000
+      },
+      {
+        "role": "Cloud Security Engineer",
+        "openings": 620000,
+        "avgSalary": 142000
+      },
+      {
+        "role": "Penetration Tester",
+        "openings": 370000,
+        "avgSalary": 126000
+      },
+      {
+        "role": "Governance / Risk / Compliance",
+        "openings": 310000,
+        "avgSalary": 115000
+      },
+      {
+        "role": "Security Architect",
+        "openings": 290000,
+        "avgSalary": 155000
+      },
+      {
+        "role": "AI Security Specialist",
+        "openings": 180000,
+        "avgSalary": 168000
+      },
+      {
+        "role": "Incident Responder",
+        "openings": 250000,
+        "avgSalary": 108000
+      }
+    ],
+    "genderRatio": {
+      "women": 25,
+      "men": 75
+    },
+    "source": "ISC2 Cybersecurity Workforce Study 2025"
+  },
+  "threatActorBreakdown": [
+    {
+      "actorType": "Cybercriminal (Financially Motivated)",
+      "shareOfIncidents": 68,
+      "primaryTTPs": [
+        "Ransomware",
+        "BEC",
+        "Credential Theft"
+      ],
+      "typicalTarget": "All sectors"
+    },
+    {
+      "actorType": "State-Sponsored / APT",
+      "shareOfIncidents": 18,
+      "primaryTTPs": [
+        "Supply Chain",
+        "Zero-Day Exploit",
+        "Espionage"
+      ],
+      "typicalTarget": "Government, Critical Infrastructure, Technology"
+    },
+    {
+      "actorType": "Insider (Malicious / Negligent)",
+      "shareOfIncidents": 10,
+      "primaryTTPs": [
+        "Data Exfiltration",
+        "Credential Sharing"
+      ],
+      "typicalTarget": "Former employer, data broker"
+    },
+    {
+      "actorType": "Hacktivist",
+      "shareOfIncidents": 4,
+      "primaryTTPs": [
+        "DDoS",
+        "Defacement",
+        "Data Leak"
+      ],
+      "typicalTarget": "Government, Media, NGOs"
+    }
+  ]
 }
